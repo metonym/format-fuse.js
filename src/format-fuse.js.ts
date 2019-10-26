@@ -2,8 +2,8 @@ import { FuseResult } from 'fuse.js';
 import set from 'set-value';
 import strind from 'strind';
 
-function formatFuseJs<T>(results: Results<T>): FormattedResult<T> {
-  const matched: FormattedResult<T> = [];
+function formatFuseJs<T>(results: FuseResults<T>): FormattedResults<T> {
+  const matched: FormattedResults<T> = [];
 
   results.forEach(({ item, matches }, index) => {
     matched.push({ ...item });
@@ -23,9 +23,8 @@ function formatFuseJs<T>(results: Results<T>): FormattedResult<T> {
   return matched;
 }
 
-type Result<T> = FuseResult<T>;
-type Results<T> = ReadonlyArray<Result<T>>;
-type FormattedResult<T> = Array<T | IFormatted>;
+type FuseResults<T> = ReadonlyArray<FuseResult<T>>;
+type FormattedResults<T> = Array<T | IFormatted>;
 
 interface IFormattedResult {
   text: string;
