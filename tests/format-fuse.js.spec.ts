@@ -21,25 +21,11 @@ describe('format-fuse.js', () => {
       ])
     ).toEqual([
       {
-        formatted: {
-          author: { firstName: 'David', lastName: 'Maine' },
-          title: [
-            { matches: false, text: 'M' },
-            { matches: true, text: 'on' },
-            { matches: false, text: 'ster 1959' }
-          ]
-        },
-        item: {
-          author: { firstName: 'David', lastName: 'Maine' },
-          title: 'Monster 1959'
-        },
-        matches: [
-          {
-            arrayIndex: 0,
-            indices: [[1, 2]],
-            key: 'title',
-            value: 'Monster 1959'
-          }
+        author: { firstName: 'David', lastName: 'Maine' },
+        title: [
+          { matches: false, text: 'M' },
+          { matches: true, text: 'on' },
+          { matches: false, text: 'ster 1959' }
         ]
       }
     ]);
@@ -65,28 +51,11 @@ describe('format-fuse.js', () => {
       ])
     ).toEqual([
       {
-        formatted: {
-          author: {
-            firstName: [{ matches: true, text: 'John' }],
-            lastName: 'Scalzi'
-          },
-          title: "Old Man's War"
+        author: {
+          firstName: [{ matches: true, text: 'John' }],
+          lastName: 'Scalzi'
         },
-        item: {
-          author: {
-            firstName: [{ matches: true, text: 'John' }],
-            lastName: 'Scalzi'
-          },
-          title: "Old Man's War"
-        },
-        matches: [
-          {
-            arrayIndex: 0,
-            indices: [[0, 3]],
-            key: 'author.firstName',
-            value: 'John'
-          }
-        ]
+        title: "Old Man's War"
       }
     ]);
 
@@ -140,73 +109,28 @@ describe('format-fuse.js', () => {
       ])
     ).toEqual([
       {
-        formatted: {
-          author: {
-            firstName: [{ matches: true, text: 'John' }],
-            lastName: 'Scalzi'
-          },
-          title: "Old Man's War"
+        author: {
+          firstName: [{ matches: true, text: 'John' }],
+          lastName: 'Scalzi'
         },
-        item: {
-          author: {
-            firstName: [{ matches: true, text: 'John' }],
-            lastName: 'Scalzi'
-          },
-          title: "Old Man's War"
-        },
-        matches: [
-          {
-            arrayIndex: 0,
-            indices: [[0, 3]],
-            key: 'author.firstName',
-            value: 'John'
-          }
+        title: "Old Man's War"
+      },
+      {
+        author: { firstName: 'David', lastName: 'Maine' },
+        title: [
+          { matches: false, text: 'M' },
+          { matches: true, text: 'on' },
+          { matches: false, text: 'ster 1959' }
         ]
       },
       {
-        formatted: {
-          author: { firstName: 'David', lastName: 'Maine' },
-          title: [
-            { matches: false, text: 'M' },
-            { matches: true, text: 'on' },
-            { matches: false, text: 'ster 1959' }
-          ]
-        },
-        item: {
-          author: { firstName: 'David', lastName: 'Maine' },
-          title: 'Monster 1959'
-        },
-        matches: [
-          {
-            arrayIndex: 0,
-            indices: [[1, 2]],
-            key: 'title',
-            value: 'Monster 1959'
-          }
-        ]
-      },
-      {
-        formatted: {
-          author: { firstName: 'Rob', lastName: 'Grant' },
-          title: [
-            { matches: false, text: 'C' },
-            { matches: true, text: 'o' },
-            { matches: false, text: 'l' },
-            { matches: true, text: 'on' },
-            { matches: false, text: 'y' }
-          ]
-        },
-        item: {
-          author: { firstName: 'Rob', lastName: 'Grant' },
-          title: 'Colony'
-        },
-        matches: [
-          {
-            arrayIndex: 0,
-            indices: [[1, 1], [3, 4]],
-            key: 'title',
-            value: 'Colony'
-          }
+        author: { firstName: 'Rob', lastName: 'Grant' },
+        title: [
+          { matches: false, text: 'C' },
+          { matches: true, text: 'o' },
+          { matches: false, text: 'l' },
+          { matches: true, text: 'on' },
+          { matches: false, text: 'y' }
         ]
       }
     ]);

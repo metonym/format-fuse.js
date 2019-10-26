@@ -2,32 +2,33 @@ import { FuseResult } from 'fuse.js';
 import set from 'set-value';
 import strind from 'strind';
 
-type Result<T> = FuseResult<T>;
-type Results<T> = ReadonlyArray<Result<T>>;
+function formatFuseJs<T>(results: Results<T>): FormattedResult<T> {
+  const matched: FormattedResult<T> = [];
 
-function formatFuseJs<T>(results: Results<T>): FinalResults<T> {
-  const finalResults: FinalResults<T> = [];
-
-  results.forEach((result, index) => {
-    finalResults.push({ ...result, formatted: { ...result.item } });
-    result.matches.forEach(({ indices, key, value }: IFuzzyResult) => {
-      const output = strind(value, indices, ({ chars: text, matches }) => ({
-        text,
-        matches
+  results.forEach(({ item, matches }, index) => {
+    matched.push({ ...item });
+    matches.forEach(({ indices, key, value }: IFuzzyResult) => {
+      const output = strind(value, indices, data => ({
+        text: data.chars,
+        matches: data.matches
       }));
       const formattedResult = output.matched as IFormattedResult[];
-      const formatted = finalResults[index].formatted as IFormatted;
+      const match = matched[index] as IFormatted;
 
       if (key.split('.').length > 1) {
-        set(formatted, key, formattedResult);
+        set(match, key, formattedResult);
       } else {
-        formatted[key] = formattedResult;
+        match[key] = formattedResult;
       }
     });
   });
 
-  return finalResults;
+  return matched;
 }
+
+type Result<T> = FuseResult<T>;
+type Results<T> = ReadonlyArray<Result<T>>;
+type FormattedResult<T> = Array<T | IFormatted>;
 
 interface IFormattedResult {
   text: string;
@@ -37,12 +38,6 @@ interface IFormattedResult {
 interface IFormatted {
   [key: string]: IFormattedResult[];
 }
-
-interface IFinalResult<T> extends Result<T> {
-  formatted: T | IFormatted;
-}
-
-type FinalResults<T> = Array<IFinalResult<T>>;
 
 interface IFuzzyResult {
   arrayIndex: number;

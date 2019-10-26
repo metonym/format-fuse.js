@@ -40,25 +40,11 @@ console.log(results);
 /**
  * [
     {
-      formatted: {
-        author: { firstName: 'David', lastName: 'Maine' },
-        title: [
-          { matches: false, text: 'M' },
-          { matches: true, text: 'on' },
-          { matches: false, text: 'ster 1959' }
-        ]
-      },
-      item: {
-        author: { firstName: 'David', lastName: 'Maine' },
-        title: 'Monster 1959'
-      },
-      matches: [
-        {
-          arrayIndex: 0,
-          indices: [[1, 2]],
-          key: 'title',
-          value: 'Monster 1959'
-        }
+      author: { firstName: 'David', lastName: 'Maine' },
+      title: [
+        { matches: false, text: 'M' },
+        { matches: true, text: 'on' },
+        { matches: false, text: 'ster 1959' }
       ]
     }
   ]
@@ -75,14 +61,14 @@ import * as React from 'react';
 export function Highlighter(results) {
   return (
     <div>
-      {results.formatted.map(({ formatted }) => {
-        if (Array.isArray(formatted.title)) {
-          return formatted.title.map(({ matches, text }) => {
+      {results.map(({ title }) => {
+        if (Array.isArray(title)) {
+          return title.map(({ matches, text }) => {
             return matches ? <mark>{text}</mark> : text;
           });
         }
 
-        return formatted.title;
+        return title;
       })}
     </div>
   );
