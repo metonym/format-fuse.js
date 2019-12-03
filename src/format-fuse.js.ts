@@ -1,4 +1,4 @@
-import { FuseResult } from 'fuse.js';
+import { FuseResultWithMatches } from 'fuse.js';
 import set from 'set-value';
 import strind from 'strind';
 
@@ -23,7 +23,7 @@ function formatFuseJs<T>(results: FuseResults<T>): FormattedResults<T> {
   return matched;
 }
 
-type FuseResults<T> = ReadonlyArray<FuseResult<T>>;
+type FuseResults<T> = ReadonlyArray<FuseResultWithMatches<T>>;
 type FormattedResults<T> = Array<T | IFormatted>;
 
 interface IFormattedResult {
