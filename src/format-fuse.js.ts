@@ -6,7 +6,7 @@ function formatFuseJs<T>(results: FuseResults<T>): FormattedResults<T> {
   const matched: FormattedResults<T> = [];
 
   results.forEach(({ item, matches }, index) => {
-    matched.push(item);
+    matched.push({ ...item });
     matches.forEach(({ indices, key, value }: IFuzzyResult) => {
       const output = strind(value, indices, data => ({ text: data.chars, matches: data.matches }));
       const formattedResult = output.matched as IFormattedResult[];
@@ -24,7 +24,7 @@ function formatFuseJs<T>(results: FuseResults<T>): FormattedResults<T> {
 }
 
 type FuseResults<T> = ReadonlyArray<FuseResultWithMatches<T>>;
-type FormattedResults<T> = Array<T | IFormatted>;
+type FormattedResults<T> = (T | IFormatted)[];
 
 interface IFormattedResult {
   text: string;
@@ -37,7 +37,7 @@ interface IFormatted {
 
 interface IFuzzyResult {
   arrayIndex: number;
-  indices: Array<[number, number]>;
+  indices: [number, number][];
   key: string;
   value: string;
 }
