@@ -1,6 +1,6 @@
-import { FuseResultWithMatches } from 'fuse.js';
-import set from 'set-value';
-import strind from 'strind';
+import { FuseResultWithMatches } from "fuse.js";
+import set from "set-value";
+import strind from "strind";
 
 function formatFuseJs<T>(results: FuseResults<T>): FormattedResults<T> {
   const matched: FormattedResults<T> = [];
@@ -8,11 +8,14 @@ function formatFuseJs<T>(results: FuseResults<T>): FormattedResults<T> {
   results.forEach(({ item, matches }, index) => {
     matched.push({ ...item });
     matches.forEach(({ indices, key, value }: IFuzzyResult) => {
-      const output = strind(value, indices, data => ({ text: data.chars, matches: data.matches }));
+      const output = strind(value, indices, (data) => ({
+        text: data.chars,
+        matches: data.matches,
+      }));
       const formattedResult = output.matched as IFormattedResult[];
       const match = matched[index] as IFormatted;
 
-      if (key.split('.').length > 1) {
+      if (key.split(".").length > 1) {
         set(match, key, formattedResult);
       } else {
         match[key] = formattedResult;

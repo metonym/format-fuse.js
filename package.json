@@ -7,25 +7,19 @@
   "main": "lib/format-fuse.js.js",
   "types": "lib/format-fuse.js.d.ts",
   "scripts": {
-    "build": "tsc",
-    "test": "jest --coverage",
-    "test:tdd": "jest --watch",
-    "prepublishOnly": "yarn build"
+    "test": "tsnd src/*.test.ts",
+    "prepack": "tsc"
   },
   "dependencies": {
     "set-value": "^3.0.1",
     "strind": "^0.3.1"
   },
   "devDependencies": {
-    "@types/jest": "^25.1.1",
+    "@types/node": "^13.13.5",
     "@types/set-value": "^2.0.0",
     "fuse.js": "^3.4.5",
-    "jest": "^25.1.0",
-    "ts-jest": "^25.2.1",
-    "typescript": "^3.6.4"
-  },
-  "jest": {
-    "preset": "ts-jest"
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.8.3"
   },
   "repository": {
     "type": "git",
