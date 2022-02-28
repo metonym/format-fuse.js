@@ -1,4 +1,4 @@
-import { FuseResultWithMatches } from "fuse.js";
+import type { FuseResultWithMatches } from "fuse.js";
 import set from "set-value";
 import strind from "strind";
 
