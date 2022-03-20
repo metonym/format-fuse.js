@@ -19,10 +19,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.21.tgz#864b987c0c68d07b4345845c3e63b75edd143644"
   integrity sha512-DBZCJbhII3r90XbQxI8Y9IjjiiOGlZ0Hr32omXIZvwwZ7p4DMMXGrKXVyPfuoBOri9XNtL0UK69jYIBIsRX3QQ==
 
-"@types/set-value@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@types/set-value/-/set-value-2.0.0.tgz#63d386b103926dcf49b50e16e0f6dd49983046be"
-  integrity sha512-k8dCJEC80F/mbsIOZ5Hj3YSzTVVVBwMdtP/M9Rtc2TM4F5etVd+2UG8QUiAUfbXm4fABedL2tBZnrBheY7UwpA==
+"@types/set-value@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@types/set-value/-/set-value-4.0.1.tgz#7caf185556a67c2d9051080931853047423c93bd"
+  integrity sha512-mP/CLy6pdrhsDVrz1+Yp5Ly6Tcel2IAEejhyI5NxY6WnBUdWN+AAfGa0HHsdgCdsPWWcd/4D5J2X2TrRYcYRag==
 
 assertion-error@^1.1.0:
   version "1.1.0"
@@ -320,10 +320,10 @@ type-detect@^4.0.0, type-detect@^4.0.5:
   resolved "https://registry.yarnpkg.com/type-detect/-/type-detect-4.0.8.tgz#7646fb5f18871cfbb7749e69bd39a6388eb7450c"
   integrity sha512-0fr/mIH1dlO+x7TlcMy+bIDqKPsw/70tVyeHW787goQjhmqaZe10uwLujubK9q9Lg6Fiho1KUKDYz0Z7k7g5/g==
 
-typescript@^4.5.5:
-  version "4.5.5"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.5.5.tgz#d8c953832d28924a9e3d37c73d729c846c5896f3"
-  integrity sha512-TCTIul70LyWe6IJWT8QSYeA54WQe8EjQFU4wY52Fasj5UKx88LNYKCgBEHcOMOrFF1rKGbD8v/xcNWVUq9SymA==
+typescript@^4.6.2:
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.6.2.tgz#fe12d2727b708f4eef40f51598b3398baa9611d4"
+  integrity sha512-HM/hFigTBHZhLXshn9sN37H085+hQGeJHJ/X7LpBWLID/fbc2acUMfU+lGD98X81sKP+pFa9f0DZmCwB9GnbAg==
 
 vite@^2.7.10:
   version "2.8.4"
@@ -337,10 +337,10 @@ vite@^2.7.10:
   optionalDependencies:
     fsevents "~2.3.2"
 
-vitest@^0.5.8:
-  version "0.5.8"
-  resolved "https://registry.yarnpkg.com/vitest/-/vitest-0.5.8.tgz#a54cc6170c404248e7dd970051c9875cde9277c5"
-  integrity sha512-LTtjwaNiFKeDm/G/XbvXzFSFRB91uMIjszwfRRr5gNpdhoo9IE2BIeAMAyKbpGaj0oAqTOltCQ6A0x/7b/1Ueg==
+vitest@^0.7.6:
+  version "0.7.6"
+  resolved "https://registry.yarnpkg.com/vitest/-/vitest-0.7.6.tgz#f4199ff621333084bbe483b52cc5de1286f110ae"
+  integrity sha512-fqk0cn0I2BUpzwLfeZ725JeXJ7WGwDtVcVBksQ6SdyjrBi6aex8t3w70TWgyLOXgylS7FJ8C9DRap4MMgpkqYw==
   dependencies:
     "@types/chai" "^4.3.0"
     "@types/chai-subset" "^1.3.3"
